@@ -4,6 +4,7 @@ Using MCMC and bigram letter transition probabilities to decode simple replaceme
 Also uses these chains to generate random sentences according to certain transition probabilities.
 
 Purpose of each file is as follows:
-	* chain.py: Has the classes for an edge, graph, and Markov Chain.
-	* bigram_helpers.py: Has various helper functions for getting transition probabilites from a text file.
-	* decrypt.py: Runs the MCMC algorithim to decode a given cypher (also has functions for generating replacement cyphers).
+	- chain.py: Has the classes for an edge, graph, and Markov Chain.
+	- bigram_helpers.py: Has various helper functions for getting transition probabilites from a text file.
+	- decrypt.py: Runs the MCMC algorithim to decode a given cypher (also has functions for generating replacement cyphers).
+	- data: Has open source text files used to generate the prbability models.
