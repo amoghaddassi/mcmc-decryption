@@ -27,3 +27,12 @@ def split_text(string):
     """Removes any special chars to make bigram matrices 27*27 (including spaces)."""
     string = string.replace("\n"," ")
     return "".join([i for i in string.lower().strip() if i in states])
+
+def get_alpha_index(letter):
+    """Returns the position of letter in a list of alphabets."""
+    index = 0
+    for l in list('abcdefghijklmnopqrstuvwxyz '):
+        if letter == l:
+            return index
+        index += 1
+

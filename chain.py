@@ -1,3 +1,4 @@
+from bigram_helpers import *
 import numpy as np
 
 class Edge:
@@ -17,6 +18,12 @@ class Edge:
         for i in range(len(self.weights)):
             self.weights[i] = self.weights[i] / total
 
+    def prob_of_transition(self, node):
+        """Finds the prob of going to node, where node is some alphabet.
+        Assumes that the weights list is in alphabetic order"""
+        return self.weights[get_alpha_index(node.name)]
+        letter = node.name
+        
     def __str__(self):
         res = '('
         for weight in list(self.weights)[:len(self.weights)-1]:
@@ -57,7 +64,13 @@ class Chain(Graph):
         return path
 
     def prob_of_path(self, path):
-        pass
+        """Finds probability of a path, which is a list of states."""
+        prob = 1
+        for i in range(len(path)-1):
+            curr_node = [edge for edge in self.edges if edge.name == path[i]][0]
+            next_node = [edge for edge in self.edges if edge.name == path[i+1]][0] 
+            prob *= curr_node.prob_of_transition(next_node)
+        return prob
 
     def steady_state(self, reps=1000):
         props = []
