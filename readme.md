@@ -1,4 +1,4 @@
-#Markov Chain Monte Carlo Decryption
+# Markov Chain Monte Carlo Decryption
 
 Using MCMC and bigram letter transition probabilities to decode simple replacement cyphers.
 Also uses these chains to generate random sentences according to certain transition probabilities.
